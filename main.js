@@ -5,8 +5,10 @@ const login = require("./api/auth").login;
 const pause = require("./api/auth").pause;
 
 const Secrets = {
-    username: process.env.LEISHEN_USERNAME,
-    password: md5(process.env.LEISHEN_PASSWORD)
+    username_1: process.env.LEISHEN_USERNAME_1,
+    password_1: md5(process.env.LEISHEN_PASSWORD_1),
+    username_2: process.env.LEISHEN_USERNAME_2,
+    password_2: md5(process.env.LEISHEN_PASSWORD_2)
 }
 
 
@@ -16,7 +18,7 @@ function start(username, password) {
         console.log("空用户名");
         return;
     }
-    if (!password) {
+    if (!username) {
         console.log("空密码");
         return;
     }
@@ -24,11 +26,11 @@ function start(username, password) {
         account_token: null,
         country_code: 86,
         lang: "zh_CN",
-        password: Secrets.password,
+        password: password,
         region_code: 1,
         src_channel: "guanwang",
         user_type: "0",
-        username: Secrets.username
+        username: username
     };
 
     login(user).then(res => {
@@ -42,11 +44,10 @@ function start(username, password) {
         } else {
             console.log('🌀雷神加速器暂停助手 失败-------')
         }
-        console.log('🌀雷神加速器暂停助手 结束运行-------')
+        console.log('🌀雷神加速器暂停助手 结束运行-------,username:' + username)
     })
 
 
 }
 
-console.log(process.env.VUE_APP_BASE_API);
 start(Secrets.username, Secrets.password);
