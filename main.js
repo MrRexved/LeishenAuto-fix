@@ -48,5 +48,5 @@ function start(username, password) {
 
 }
 
-
+console.log(process.env.VUE_APP_BASE_API);
 start(Secrets.username, Secrets.password);
