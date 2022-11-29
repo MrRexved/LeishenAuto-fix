@@ -11,7 +11,8 @@ const Secrets = {
     password_2: md5(process.env.LEISHEN_PASSWORD_2)
 }
 
-
+const User_Value= process.env.LEISHEN_UserValue
+console.log(User_Value.username_1)
 function start(username, password) {
     console.log('🌀雷神加速器暂停助手 开始运行-------')
     if (!username) {
@@ -50,4 +51,4 @@ function start(username, password) {
 
 }
 
-start(Secrets.username, Secrets.password);
+//start(Secrets.username, Secrets.password);
