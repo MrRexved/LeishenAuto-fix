@@ -33,14 +33,13 @@ function start(username, password) {
             let account_token = res.data.data.login_info.account_token;
             pause({ "account_token": account_token, "lang": "zh_CN" }).then(res2 => {
                 console.log(res2.data.code + ':' + res2.data.msg);
-                console.log('🌀雷神加速器暂停助手 成功-------username:' + username)
+                console.log('🌀雷神加速器暂停助手 成功-------username:' )
 
             })
         } else {
-            console.log(res.data)
             console.log('🌀雷神加速器暂停助手 失败-------')
         }
-        console.log('🌀雷神加速器暂停助手 结束运行-------,username:' + username)
+        console.log('🌀雷神加速器暂停助手 结束运行-------,username:' )
     })
 
 
