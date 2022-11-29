@@ -4,16 +4,7 @@ md5 = require('js-md5');
 const login = require("./api/auth").login;
 const pause = require("./api/auth").pause;
 
-// const Secrets = {
-//     username_1: process.env.LEISHEN_USERNAME_1,
-//     password_1: md5(process.env.LEISHEN_PASSWORD_1),
-//     username_2: process.env.LEISHEN_USERNAME_2,
-//     password_2: md5(process.env.LEISHEN_PASSWORD_2)
-// }
-
-const User_Value= process.env.LEISHEN_UserValue
-console.log(JSON.parse(User_Value).username_1)
-console.log("成功")
+const User_Values=JSON.parse(process.env.LEISHEN_UserValue)
 function start(username, password) {
     console.log('🌀雷神加速器暂停助手 开始运行-------')
     if (!username) {
@@ -35,15 +26,18 @@ function start(username, password) {
         username: username
     };
 
+    console.log(user)
+
     login(user).then(res => {
         if (res.data.code == 0) {
             let account_token = res.data.data.login_info.account_token;
             pause({ "account_token": account_token, "lang": "zh_CN" }).then(res2 => {
                 console.log(res2.data.code + ':' + res2.data.msg);
-                console.log('🌀雷神加速器暂停助手 成功-------')
+                console.log('🌀雷神加速器暂停助手 成功-------username:' + username)
 
             })
         } else {
+            console.log(res.data)
             console.log('🌀雷神加速器暂停助手 失败-------')
         }
         console.log('🌀雷神加速器暂停助手 结束运行-------,username:' + username)
@@ -52,4 +46,9 @@ function start(username, password) {
 
 }
 
-//start(Secrets.username, Secrets.password);
+for(let key in User_Values) 
+{
+  start(User_Values[key][0],md5(User_Values[key][1]))
+}
+
+
