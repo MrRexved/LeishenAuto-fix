@@ -26,7 +26,6 @@ function start(username, password) {
         username: username
     };
 
-    console.log(user)
 
     login(user).then(res => {
         if (res.data.code == 0) {
