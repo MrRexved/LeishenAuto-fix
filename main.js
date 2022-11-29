@@ -13,6 +13,7 @@ const pause = require("./api/auth").pause;
 
 const User_Value= process.env.LEISHEN_UserValue
 console.log(User_Value)
+console.log("成功")
 function start(username, password) {
     console.log('🌀雷神加速器暂停助手 开始运行-------')
     if (!username) {
