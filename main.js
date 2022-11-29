@@ -4,12 +4,12 @@ md5 = require('js-md5');
 const login = require("./api/auth").login;
 const pause = require("./api/auth").pause;
 
-const Secrets = {
-    username_1: process.env.LEISHEN_USERNAME_1,
-    password_1: md5(process.env.LEISHEN_PASSWORD_1),
-    username_2: process.env.LEISHEN_USERNAME_2,
-    password_2: md5(process.env.LEISHEN_PASSWORD_2)
-}
+// const Secrets = {
+//     username_1: process.env.LEISHEN_USERNAME_1,
+//     password_1: md5(process.env.LEISHEN_PASSWORD_1),
+//     username_2: process.env.LEISHEN_USERNAME_2,
+//     password_2: md5(process.env.LEISHEN_PASSWORD_2)
+// }
 
 const User_Value= process.env.LEISHEN_UserValue
 console.log(User_Value)
